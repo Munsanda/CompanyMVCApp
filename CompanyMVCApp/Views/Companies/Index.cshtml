@@ -1,0 +1,87 @@
+﻿@model IEnumerable<CompanyMVCApp.Models.Company>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+           <p> <b>Companies</b></p>
+        </tr>
+</table>
+<div class="tableFixHead">
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+               Company Name
+            </th>
+            <th>
+                City
+            </th>
+            <th>
+                State
+            </th>
+            <th>
+                PhoneNumber
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a id="companyLink" onclick="handleCompanyClick(@item.Id)" class="">@Html.DisplayFor(modelItem => item.CompanyName)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyCity)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.CompanyState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyPhoneNumber)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+
+
+<div class="companyInfo" id="companyInfo">
+
+</div>
+
+<div>
+
+
+</div>
+
+
+<script type="text/javascript">
+
+  function handleCompanyClick(companyID) {
+            
+            $.ajax({
+                type: "GET",
+                url: "Companies/Edit",
+                data: { "id": companyID },
+                success: function (response) {
+                    alert("success");
+                    $("#companyInfo").show().html(response);
+                    //$("#partialModal").modal('show');
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+  }
+</script>
+
+

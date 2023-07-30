@@ -1,0 +1,66 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/*table {
+    border-collapse: collapse;*/ /* make the table borders collapse to each other */
+    /*width: 100%;
+   
+}*/
+
+.tableFixHead {
+    overflow-y: auto; /* make the table scrollable if height is more than 200 px  */
+    height: 400px; /* gives an initial height of 200px to the table */
+    border: 1px solid black;
+}
+
+    .tableFixHead thead th {
+        position: sticky; /* make the table heads sticky */
+        top: 0px; /* table head will be placed from the top of the table and sticks to it */
+        background-color: snow;
+    }
+
+table, th, td {
+    /*border: 1px solid grey;*/
+}
+
+.details {
+    
+    
+}
+
+/* Use CSS Flex to align groups in "Details" */
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+/* Use CSS Grid to align items in groups in "Details" */
+.detail-item {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; /* Adjust this value to add space between items */
+    padding: 10px;
+    width: 310px;
+}
+
